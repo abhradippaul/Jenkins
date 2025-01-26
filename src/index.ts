@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // Sample route
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, world!");
+  res.send("Hello, world! updated for jenkins polling");
 });
 
 app.get("/api/users", (req: Request, res: Response) => {
