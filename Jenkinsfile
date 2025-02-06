@@ -3,16 +3,12 @@ pipeline{
     stages{
         stage("First Stage"){
            steps{
-               script{
-                   hello()
-               }
+               echo "Hello world"
            }
         }
         stage("Code Clone"){
            steps{
-                script{
                     git url: "https://github.com/abhradippaul/Jenkins.git", branch: "main"
-                }
            }
         }
     }
