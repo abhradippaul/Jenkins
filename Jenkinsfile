@@ -1,16 +1,46 @@
+@Library("Shared") _
 pipeline{
-    agent any
-    stages{
-        stage("First Stage"){
-           steps{
-               echo "Hello world"
-           }
+  agent any;
+
+  stages{
+    stage("Git Clone"){
+      steps{
+        script{
+          clone()
         }
-        stage("Code Clone"){
-           steps{
-                    git url: "https://github.com/abhradippaul/Jenkins.git", branch: "main"
-           }
-        }
+      }
     }
-    
+    stage("Building Image"){
+      steps{
+        script{
+          dockerimage()
+        }
+      }
+    }
+  }
+
+  stage("Push to DockerHub"){
+      steps{
+        script{
+          pushtodockerhub()
+        }
+      }
+    }
+
+  stage("Create Container"){
+      steps{
+        script{
+          dockercontainer()
+        }
+      }
+    }
+
+  stage("Test Container"){
+      steps{
+        script{
+          testcontainer()
+        }
+      }
+    }
+  
 }
