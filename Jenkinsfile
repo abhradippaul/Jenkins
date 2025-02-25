@@ -13,7 +13,7 @@ pipeline{
     stage("Building Image"){
       steps{
         script{
-          dockerimage("hello")
+          dockerimage("backend-image")
         }
       }
     }
