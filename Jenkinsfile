@@ -1,6 +1,6 @@
 @Library("Shared") _
 pipeline{
-  agent any;
+  agent {label 'aws-client'};
 
   stages{
     stage("Git Clone"){
